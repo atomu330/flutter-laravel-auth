@@ -21,10 +21,8 @@ use App\Http\Controllers\AuthController;
 // });
 
 // 追加
-Route::group(['prefix' => 'auth'], function () {
-    Route::controller(AuthController::class)->group(function () {
-        Route::post('/login', 'login');
-        Route::post('/register', 'register');
-        Route::get('/logout', 'logout')->middleware('auth:api');
-    });
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/login', 'login');
+    Route::post('/register', 'register');
+    Route::get('/logout', 'logout')->middleware('auth:api');
 });
